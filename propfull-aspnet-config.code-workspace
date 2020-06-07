@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "./src/Propfull.AspNet.Config"
+		},
+		{
+			"path": "./__tests__/Propfull.AspNet.Config.Tests"
+		},
+		{
+			"path": "./samples/Propfull.AspNet.Config.Sample"
+		}
+	],
+	"settings": {}
+}
