@@ -13,7 +13,7 @@ namespace Propfull.AspNet.Config.Tests
         }
 
         [Fact(DisplayName = "Should return a clone of the config")]
-        public async Task ShouldReturnACloneOfTheConfigTest()
+        public async Task ShouldReturnACloneOfTheConfig()
         {
             var config = new SampleConfig
             {
@@ -31,14 +31,6 @@ namespace Propfull.AspNet.Config.Tests
             actualConfig.Version = 2;
 
             Assert.Equal(1, config.Version);
-        }
-
-        [Fact(
-            DisplayName = "Should validate config when registered",
-            Skip = "Will be implemented with validation feature")]
-        public async Task ShouldValidateConfigTest()
-        {
-            await Task.Run(() => { });
         }
     }
 }

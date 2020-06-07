@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Options;
 
 namespace Propfull.AspNet.Config
@@ -10,7 +11,9 @@ namespace Propfull.AspNet.Config
         {
             var options = factory.GetService(typeof(IOptions<T>)) as IOptions<T>;
 
-            // TODO: run validation
+            var validationContext = new ValidationContext(options.Value);
+            Validator.ValidateObject(options.Value, validationContext, true);
+
             return new ConfigService<T>(options);
         }
     }
