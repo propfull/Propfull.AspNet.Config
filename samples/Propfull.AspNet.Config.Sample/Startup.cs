@@ -21,6 +21,7 @@ namespace Propfull.AspNet.Config.Sample
             services.AddControllers();
 
             services.Configure<ApiConfig>(Configuration.GetSection(nameof(ApiConfig)));
+            services.AddTransient<ConfigService<ApiConfig>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

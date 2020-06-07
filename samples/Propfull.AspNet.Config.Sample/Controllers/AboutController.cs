@@ -5,15 +5,19 @@ namespace Propfull.AspNet.Config.Sample.Controllers
 {
     [ApiController]
     [Route("")]
-    public class WeatherForecastController : ControllerBase
+    public class AboutController : ControllerBase
     {
+        private readonly ConfigService<ApiConfig> configService;
+
+        public AboutController(ConfigService<ApiConfig> configService)
+        {
+            this.configService = configService;
+        }
+
         public async Task<IActionResult> GetAboutAsync()
         {
-            return await Task.Run(() => Ok(new
-            {
-                Name = "Propfull sample API",
-                Version = "v1.0.0"
-            }));
+            var config = await configService.GetConfigAsync();
+            return Ok(config);
         }
     }
 }
