@@ -32,5 +32,13 @@ namespace Propfull.AspNet.Config.Tests
 
             Assert.Equal(1, config.Version);
         }
+
+        [Fact(
+            DisplayName = "Should validate config when registered",
+            Skip = "Will be implemented with validation feature")]
+        public async Task ShouldValidateConfigTest()
+        {
+            await Task.Run(() => { });
+        }
     }
 }

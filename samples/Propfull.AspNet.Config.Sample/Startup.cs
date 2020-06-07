@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Propfull.AspNet.Config;
 
 namespace Propfull.AspNet.Config.Sample
 {
@@ -21,7 +23,7 @@ namespace Propfull.AspNet.Config.Sample
             services.AddControllers();
 
             services.Configure<ApiConfig>(Configuration.GetSection(nameof(ApiConfig)));
-            services.AddTransient<ConfigService<ApiConfig>>();
+            services.AddSingleton(options => options.GetConfigService<ApiConfig>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
