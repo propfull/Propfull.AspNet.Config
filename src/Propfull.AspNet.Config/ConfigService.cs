@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using Force.DeepCloner;
 using Microsoft.Extensions.Options;
 
 namespace Propfull.AspNet.Config
@@ -9,6 +11,11 @@ namespace Propfull.AspNet.Config
         public ConfigService(IOptions<TConfig> configOptions)
         {
             config = configOptions.Value;
+        }
+
+        public Task<TConfig> GetConfigAsync()
+        {
+            return Task.FromResult(config.DeepClone());
         }
     }
 }
