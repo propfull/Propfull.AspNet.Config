@@ -19,6 +19,8 @@ namespace Propfull.AspNet.Config.Sample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.Configure<ApiConfig>(Configuration.GetSection(nameof(ApiConfig)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
