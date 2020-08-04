@@ -17,9 +17,9 @@ Example:
 ```
 public class ApiConfig
 {
-    public string ApiName { get; set; }
-    public string ApiVersion { get; set; }
-    public string ApiDescription { get; set; }
+    public string Name { get; set; }
+    public string Version { get; set; }
+    public string Description { get; set; }
 }
 ```
 
@@ -46,8 +46,7 @@ Example: here we are injecting the config through appSettings, by appending a ne
 In your ConfigureServices method in [Startup.cs](/samples/Propfull.AspNet.Config.Sample/Startup.cs), call the configure method to bind the options. For example:
 
 ```
- services.Configure<ApiConfig>(
-     Configuration.GetSection(nameof(ApiConfig)));
+ services.Configure<ApiConfig>(Configuration.GetSection(nameof(ApiConfig)));
 ```
 
 ### Use DI to use the ConfigService
@@ -55,8 +54,7 @@ In your ConfigureServices method in [Startup.cs](/samples/Propfull.AspNet.Config
 In your ConfigureServices method in [Startup.cs](/samples/Propfull.AspNet.Config.Sample/Startup.cs), call the AddSingleton method to inject the ConfigService through DI
 
 ```
-services.AddSingleton(
-    options => options.GetConfigService<ApiConfig>());
+services.AddSingleton(options => options.GetConfigService<ApiConfig>());
 ```
 
 ### Use the config Service in your code through DI
