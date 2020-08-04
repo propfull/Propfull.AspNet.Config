@@ -2,6 +2,10 @@
 
 A simple ConfigService for ASP.NET Core for strongly typed Configuration.
 
+```
+dotnet add package Propfull.AspNet.Config
+```
+
 ## Features 
 
 - Strongly typed configuration
